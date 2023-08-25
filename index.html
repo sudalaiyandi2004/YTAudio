@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Audio Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
+</head>
+<body>
+
+        <h1>YouTube Audio Generator</h1>
+
+        <div class="container">
+        <form method="POST" action="/">
+            <label for="link">Enter the YouTube link:</label>
+            <input type="text" id="link" name="link" required>
+            <br>
+            <label for="target_lang">Select the target language:</label>
+            <select id="target_lang" name="target_lang">
+                {% for lang_code, lang_name in languages.items() %}
+                    <option value="{{ lang_code }}">{{ lang_name }}</option>
+                {% endfor %}
+            </select>
+             <label for="gender">Select Gender:</label><br>
+
+            <br>
+            <button type="submit">Generate Audio</button>
+        </form>
+    </div>
+</body>
+</html>
